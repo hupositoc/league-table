@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
@@ -17,7 +19,6 @@ jobs:
       - name: Run Python script
         env:
           API_KEY: ${{ secrets.API_KEY }}
-        working-directory: ${{ github.workspace }}
         run: |
           python ${{ github.workspace }}/.github/workflows/epl_table.py
       - name: Commit and push
