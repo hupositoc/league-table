@@ -1,8 +1,9 @@
 import requests
 from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
+import os
 
-API_KEY = "API_KEY"  # GitHub Secrets로 대체 예정
+API_KEY = os.getenv("API_KEY")  # GitHub Secrets에서 가져오기
 URL = "https://api.football-data.org/v4/competitions/PL/standings"
 
 headers = {"X-Auth-Token": API_KEY}
