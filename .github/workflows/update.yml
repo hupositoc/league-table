@@ -19,9 +19,7 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
         working-directory: ${{ github.workspace }}
         run: |
-          cd .github/workflows
-          ls -al   # (디버깅용: 파일 존재 여부 확인)
-          python epl_table.py
+          python ${{ github.workspace }}/.github/workflows/epl_table.py
       - name: Commit and push
         run: |
           git config user.name "github-actions"
